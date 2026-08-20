@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>حكايتنا ❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+
+/* =========================
+   الصفحة الرئيسية
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.75)
+        ),
+        url("images/cover.jpg.jpeg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+.start-btn {
+    background: white;
+    color: black;
+
+    padding: 15px 35px;
+
+    border-radius: 40px;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   الذكريات
+========================= */
+
+.story {
+    display: none;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 60px 20px;
+}
+
+.memory {
+    background: #151515;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
+}
+
+.memory h2 {
+    text-align: center;
+
+    font-size: 32px;
+
+    padding: 30px 20px;
+}
+
+
+/* الصور */
+
+.photos {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px;
+}
+
+.photos img {
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+}
+
+.single-photo img {
+    width: 100%;
+
+    max-height: 650px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* الفيديو */
+
+.memory video {
+    width: 100%;
+
+    max-height: 600px;
+
+    display: block;
+
+    background: black;
+}
+
+
+/* الأغاني */
+
+.music-player {
+    padding: 25px 30px;
+
+    text-align: center;
+
+    background: #101010;
+}
+
+.music-player p {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+}
+
+.music-player audio {
+    width: 100%;
+}
+
+
+/* الكلام */
+
+.memory-text {
+    padding: 35px;
+
+    text-align: right;
+
+    color: #ddd;
+
+    font-size: 18px;
+
+    line-height: 2.2;
+}
+
+
+/* أزرار الانتقال */
+
+.next-container {
+    text-align: center;
+
+    padding: 30px;
+}
+
+.next-btn {
+    background: white;
+
+    color: black;
+
+    padding: 14px 35px;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   النهاية
+========================= */
+
+.final {
+    display: none;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding: 30px;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* خلفية الصور */
+
+.final-background {
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-rows: repeat(2, 1fr);
+
+    z-index: 0;
+}
+
+.final-background img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: brightness(.35);
+}
+
+
+/* طبقة غامقة */
+
+.final-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    z-index: 1;
+}
+
+
+/* محتوى النهاية */
+
+.final-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 700px;
+
+    width: 100%;
+}
+
+.final-content h1 {
+    font-size: 42px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.final-content p {
+    font-size: 19px;
+
+    line-height: 2;
+
+    margin-bottom: 35px;
+}
+
+
+/* الأزرار */
+
+.answers {
+    position: relative;
+
+    min-height: 100px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.yes-btn,
+.no-btn {
+    padding: 15px 35px;
+
+    border-radius: 40px;
+
+    font-size: 18px;
+}
+
+.yes-btn {
+    background: white;
+
+    color: black;
+}
+
+.no-btn {
+    background: #333;
+
+    color: white;
+
+    position: relative;
+}
+
+
+/* رسالة آه */
+
+.success-message {
+    display: none;
+
+    margin-top: 30px;
+
+    font-size: 24px;
+
+    line-height: 2;
+}
+
+
+/* =========================
+   الموبايل
+========================= */
+
+@media (max-width:600px) {
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .photos {
+        grid-template-columns: 1fr;
+    }
+
+    .photos img {
+        height: auto;
+    }
+
+    .memory h2 {
+        font-size: 25px;
+    }
+
+    .memory-text {
+        font-size: 16px;
+
+        padding: 25px;
+
+        line-height: 2;
+    }
+
+    .final-background {
+        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .final-content h1 {
+        font-size: 32px;
+    }
+
+    .final-content p {
+        font-size: 16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     الصفحة الرئيسية
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            حكايتنا ❤️
+        </h1>
+
+        <p>
+            مش مجرد صور وذكريات...
+            <br>
+            دي حكاية أجمل لحظات عشناها سوا.
+        </p>
+
+        <button
+            class="start-btn"
+            onclick="startStory()">
+
+            ابدأ حكايتنا ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     الذكرى الأولى
+========================= -->
+
+<section class="story" id="memory1">
+
+<div class="memory">
+
+<h2>
+أول مرة أقابلك بره الشغل ❤️
+</h2>
+
+
+<div class="photos">
+
+<img src="images/memory1-1.jpg.jpeg">
+
+<img src="images/memory1-2.jpg.jpeg">
+
+</div>
+
+
+<video controls playsinline>
+
+<source
+src="videos/memory1.mp4.mp4"
+type="video/mp4">
+
+</video>
+
+
+<div class="music-player">
+
+<p>
+🎵 أغنية الذكرى الأولى
+</p>
+
+<audio id="music1" controls>
+
+<source
+src="music/memory1.mp3.mp3"
+type="audio/mpeg">
+
+</audio>
+
+</div>
+
+
+<div class="memory-text">
+
+<p>
+
+ملك، ده كان أول يوم ننزل فيه سوا بعيد عن الشغل،
+وأول مرة نقضي وقت مع بعض بالشكل ده.
+يومها نزلنا مدينة نصر، وقعدنا نتمشى في شوارع
+عباس العقاد ومكرم عبيد، وكانت من أكتر اللحظات
+اللي كنت مستنيها من زمان.
+
+<br><br>
+
+فاكرة إني اتأخرت عليكي يومها؟ 😂
+
+<br><br>
+
+كنتِ واقفة مستنياني عند البنزينة اللي على أول عباس،
+وأنا اتأخرت عليكي لأن اليوم ده كان تقريبًا أول مرة
+أجيبلك فيها هدية بجد.
+
+<br><br>
+
+ودي كانت أول هدية أقدمها في حياتي،
+وكون إن أول هدية أقدمها كانت ليكي إنتِ،
+خلّى الموضوع بالنسبالي مميز جدًا.
+
+<br><br>
+
+وقتها جبتلك الشوكولاتة،
+ولسه لحد دلوقتي محتفظة بالبوكس بتاعها،
+ودي من الحاجات الصغيرة اللي كل ما أفتكرها
+بحس قد إيه التفاصيل دي كانت غالية عندي.
+
+<br><br>
+
+أنا بجد مش قادر أوصفلك فرحتي بيكي يومها
+كانت عاملة إزاي، ولا فرحتي إننا أخيرًا
+اتقابلنا وقعدنا مع بعض بعيد عن الشغل.
+
+<br><br>
+
+كنت مبسوط جدًا لمجرد إنك قدامي،
+وإننا أخيرًا عندنا وقت لينا إحنا.
+
+<br><br>
+
+بس أكتر حاجة فاكرها من اليوم ده إن الوقت
+كان قليل جدًا...
+
+<br><br>
+
+وأنا من جوايا كنت نفسي اليوم يطول.
+كنت نفسي أفضل معاكي ساعات أكتر بكتير،
+نتمشى أكتر، ونتكلم أكتر،
+وأعيش معاكي تفاصيل أكتر من اليوم ده.
+
+<br><br>
+
+يمكن الوقت اللي قضيناه سوا يومها كان قليل،
+لكن تأثيره عندي كان كبير جدًا.
+
+<br><br>
+
+وأجمل حاجة إن الذكرى دي لسه عايشة
+في تفاصيل صغيرة لحد دلوقتي...
+
+زي بوكس الشوكولاتة اللي لسه محتفظة بيه. ❤️
+
+<br><br>
+
+ولو كنت أعرف وقتها إن اليوم ده هيبقى
+من الذكريات اللي هفضل أفتكرها بالشكل ده،
+كنت تمنيت إن الوقت يوقف شوية،
+بس عشان أفضل معاكي أكتر.
+
+<br><br>
+
+وأتمنى إن دي ما تكونش مجرد أول مرة
+نقعد فيها سوا بعيد عن الشغل...
+
+<br><br>
+
+أتمنى تكون مجرد بداية لأيام وذكريات
+كتير جدًا لسه مستنيانا. ❤️
+
+</p>
+
+</div>
+
+
+<div class="next-container">
+
+<button
+class="next-btn"
+onclick="showMemory2()">
+
+الذكرى التالية ❤️
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     الذكرى الثانية
+========================= -->
+
+<section class="story" id="memory2">
+
+<div class="memory">
+
+<h2>
+أول عيد لينا سوا ❤️
+</h2>
+
+
+<div class="single-photo">
+
+<img src="images/memory2.jpg.jpeg">
+
+</div>
+
+
+<div class="music-player">
+
+<p>
+🎵 أغنية أول عيد لينا
+</p>
+
+<audio id="music2" controls>
+
+<source
+src="music/memory2.mp3.mp3"
+type="audio/mpeg">
+
+</audio>
+
+</div>
+
+
+<div class="memory-text">
+
+<p>
+
+ملك، يومها كان أول عيد يعدّي علينا سوا،
+ومش متخيلة قد إيه أنا كنت فرحان وقتها.
+يمكن اليوم كان بسيط في تفاصيله،
+لكن بالنسبة لي كان ليه إحساس مختلف تمامًا،
+لمجرد إنك كنتي معايا في أول عيد نعيشه سوا.
+
+<br><br>
+
+وأكتر حاجة فاكرها من اليوم ده إننا
+كنا لابسين زي بعض وبنفس اللون 😂❤️،
+ودي كانت من التفاصيل اللي خلت اليوم
+أحلى وأقرب لقلبي.
+
+<br><br>
+
+يومها قررنا نروح سيتي ستارز،
+ودخلنا وإحنا مبسوطين،
+لكن إحنا الاتنين اتخنقنا من الجو جوه
+في نفس الوقت 😂،
+فقررنا نخرج ونتمشى برا.
+
+<br><br>
+
+وقتها كانت أول مرة نمشي سوا بالشكل ده،
+وفضلنا ماشيين ونتكلم ونتصور،
+وكل لحظة في اليوم ده كانت بالنسبالي
+مميزة لمجرد إنك كنتي معايا.
+
+<br><br>
+
+وطبعًا مستحيل أنسى العيدية ❤️😂
+
+<br><br>
+
+ساعتها إديتك أول عيدية في العيد،
+وكانت ألف جنيه،
+ومش ناسي خالص المنظر بتاعك
+وإنتِ فرحانة بيها،
+خصوصًا إنها كانت أول عيدية أديهالك.
+
+<br><br>
+
+يمكن المبلغ نفسه مش هو المهم،
+لكن إحساس اللحظة دي هو اللي فضل معايا.
+فرحتك، ونظرة عينيكي،
+وإحساس إنك مبسوطة بحاجة أنا قدمتهالك...
+كل ده كان بالنسبالي أغلى بكتير
+من قيمة العيدية نفسها. ❤️
+
+<br><br>
+
+وفوق كل ده، الدنيا قررت تكمل اليوم
+بطريقتها ونزل علينا المطر 😂❤️،
+واضطرينا للأسف نمشي بدري.
+
+<br><br>
+
+ورغم إن اليوم انتهى أسرع مما كنت أتمنى،
+إلا إن كل تفاصيله فضلت معايا.
+من لبسنا اللي كان شبه بعض،
+لمشيتنا سوا، لكلامنا وصورنا،
+لفرحتك بأول عيدية،
+وحتى المطر اللي خلانا نمشي بدري.
+
+<br><br>
+
+يمكن أجمل حاجة في الذكرى دي
+إننا ماكناش محتاجين حاجة كبيرة
+عشان نكون مبسوطين...
+كان كفاية إننا سوا.
+
+<br><br>
+
+ولو رجع بيا الوقت لنفس اليوم،
+مش هغير حاجة فيه،
+يمكن بس كنت أتمنى إن الوقت يطول شوية،
+وإننا نفضل مع بعض أكتر.
+
+<br><br>
+
+لأن في النهاية، اللي فضل معايا
+مش المكان ولا الفلوس ولا حتى تفاصيل اليوم كلها...
+
+<br><br>
+
+<strong>
+اللي فضل معايا هو إحساس أول عيد لينا سوا،
+وفرحتك اللي لسه فاكرها لحد دلوقتي. ❤️
+</strong>
+
+<br><br>
+
+ودي واحدة من الذكريات اللي نفسي
+بعد سنين لما نفتكرها،
+نضحك ونقول:
+
+<br><br>
+
+<strong>
+"فاكرة أول عيدية؟ 😂❤️"
+</strong>
+
+</p>
+
+</div>
+
+
+<div class="next-container">
+
+<button
+class="next-btn"
+onclick="showMemory3()">
+
+الذكرى التالية ❤️
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     الذكرى الثالثة
+========================= -->
+
+<section class="story" id="memory3">
+
+<div class="memory">
+
+<h2>
+أول مرة نقعد فيها مع بعض ❤️
+</h2>
+
+
+<div class="single-photo">
+
+<img src="images/memory3.jpg.jpeg">
+
+</div>
+
+
+<video controls playsinline>
+
+<source
+src="videos/memory3.mp4.mp4"
+type="video/mp4">
+
+</video>
+
+
+<div class="music-player">
+
+<p>
+🎵 من أول دقيقة — إليسا وسعد لمجرد
+</p>
+
+<audio id="music3" controls>
+
+<source
+src="music/memory3.mp3.mp3"
+type="audio/mpeg">
+
+</audio>
+
+</div>
+
+
+<div class="memory-text">
+
+<p>
+
+ملك، اليوم ده كان من أكتر الأيام اللي بحب أفتكرها،
+لأنه كان أول مرة ننزل ونقعد في مكان بعيد
+ونبقى واخدين وقتنا مع بعض ونتكلم براحتنا.
+
+<br><br>
+
+يومها حسيت إننا قربنا من بعض أوي،
+واتكلمنا في حاجات كتير،
+ومش ناسي كلامنا ونظراتنا لبعض،
+وقد إيه كنا مبسوطين وإحنا قاعدين سوا
+ومستمتعين بالوقت.
+
+<br><br>
+
+وأكتر حاجة فاكرها لما قمت وقعدت جنبك،
+وقتها كنت حاسس إنك قريبة مني أوي،
+وحاسس بوجودك حواليا،
+وكنت مرتاح ومطمن ومبسوط بطريقة صعب أوصفها.
+
+<br><br>
+
+كنت حاسس إني في مكاني،
+وإن مفيش حاجة تهمني في الوقت ده
+غير إني قاعد معاكي.
+
+<br><br>
+
+ويومها كمان لبستك الخاتم اللي كنت جايبهولك قبلها ❤️
+
+<br><br>
+
+ومش ناسي فرحتك وإنتِ لابساه،
+ولا شكلك وقتها وإنتِ مبسوطة بيه.
+يمكن الخاتم كان موجود من قبل اليوم ده،
+بس اللحظة اللي لبستهالك فيها وأنا قاعد جنبك
+فضلت في بالي،
+عشان كانت جزء من يوم أنا أصلًا
+كنت مبسوط فيه جدًا بوجودك معايا.
+
+<br><br>
+
+اليوم كله كان حلو أوي،
+وكل ما الوقت كان بيعدي
+كنت ببقى نفسي إنه يطول أكتر.
+
+<br><br>
+
+بجد ماكانش نفسي اليوم يخلص،
+كنت عايز أفضل قاعد معاكي
+ونتكلم ونضحك ونعيش الوقت ده أكتر وأكتر.
+
+<br><br>
+
+يمكن اليوم خلص،
+بس أنا لحد دلوقتي فاكر إحساسي
+وأنا قاعد جنبك،
+وفرحان إننا أخدنا اليوم ده لنفسنا.
+
+<br><br>
+
+<strong>
+ومن أكتر الحاجات اللي بحبها في حكايتنا
+إن كل مرة كنا بنقرب من بعض أكتر،
+واليوم ده كان من أكتر الأيام
+اللي حسيت فيها بده. ❤️
+</strong>
+
+</p>
+
+</div>
+
+
+<div class="next-container">
+
+<button
+class="next-btn"
+onclick="showFinal()">
+
+كمّل الحكاية ❤️
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     النهاية
+========================= -->
+
+<section class="final" id="final">
+
+
+<div class="final-background">
+
+<img src="images/memory1-1.jpg.jpeg">
+
+<img src="images/memory1-2.jpg.jpeg">
+
+<img src="images/memory2.jpg.jpeg">
+
+<img src="images/memory3.jpg.jpeg">
+
+<img src="images/cover.jpg.jpeg">
+
+<img src="images/memory1-1.jpg.jpeg">
+
+</div>
+
+
+<div class="final-overlay"></div>
+
+
+<div class="final-content">
+
+<h1>
+حكايتنا لسه مخلصتش ❤️
+</h1>
+
+<p>
+
+كل الذكريات دي كانت مجرد بداية...
+
+<br>
+
+وبعد كل اللي عشناه سوا،
+
+عندي سؤال واحد بس:
+
+<br><br>
+
+<strong>
+حابة تكملي معايا بقية حياتك؟ ❤️
+</strong>
+
+</p>
+
+
+<div class="answers">
+
+<button
+class="yes-btn"
+onclick="sayYes()">
+
+آه ❤️
+
+</button>
+
+
+<button
+class="no-btn"
+id="noButton">
+
+لأ
+
+</button>
+
+</div>
+
+
+<div
+class="success-message"
+id="successMessage">
+
+❤️❤️❤️
+
+<br>
+
+أجمل إجابة ممكن أشوفها.
+
+<br>
+
+حكايتنا لسه مكملة...
+
+</div>
+
+
+<div class="music-player">
+
+<p>
+🎵 أغنية النهاية
+</p>
+
+<audio
+id="finalMusic"
+controls>
+
+<source
+src="music/final.mp3.mp3"
+type="audio/mpeg">
+
+</audio>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+
+/* =========================
+   تشغيل الأغاني
+========================= */
+
+function playMusic(music) {
+
+    music.volume = 0.7;
+
+    music.play().catch(function() {
+
+        console.log(
+            "المتصفح منع التشغيل التلقائي."
+        );
+
+    });
+
+}
+
+
+function stopMusic(music) {
+
+    music.pause();
+
+    music.currentTime = 0;
+
+}
+
+
+/* =========================
+   البداية
+========================= */
+
+function startStory() {
+
+    document.getElementById("home").style.display = "none";
+
+    document.getElementById("memory1").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    playMusic(
+        document.getElementById("music1")
+    );
+
+}
+
+
+/* =========================
+   الذكرى الثانية
+========================= */
+
+function showMemory2() {
+
+    stopMusic(
+        document.getElementById("music1")
+    );
+
+    document.getElementById("memory1").style.display = "none";
+
+    document.getElementById("memory2").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    playMusic(
+        document.getElementById("music2")
+    );
+
+}
+
+
+/* =========================
+   الذكرى الثالثة
+========================= */
+
+function showMemory3() {
+
+    stopMusic(
+        document.getElementById("music2")
+    );
+
+    document.getElementById("memory2").style.display = "none";
+
+    document.getElementById("memory3").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    playMusic(
+        document.getElementById("music3")
+    );
+
+}
+
+
+/* =========================
+   النهاية
+========================= */
+
+function showFinal() {
+
+    stopMusic(
+        document.getElementById("music3")
+    );
+
+    document.getElementById("memory3").style.display = "none";
+
+    document.getElementById("final").style.display = "flex";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    playMusic(
+        document.getElementById("finalMusic")
+    );
+
+}
+
+
+/* =========================
+   زر آه
+========================= */
+
+function sayYes() {
+
+    document.getElementById("successMessage").style.display = "block";
+
+}
+
+
+/* =========================
+   زر لأ
+   يتحرك أول 5 محاولات فقط
+========================= */
+
+const noButton =
+    document.getElementById("noButton");
+
+let noAttempts = 0;
+
+const maxAttempts = 5;
+
+
+noButton.addEventListener(
+    "mouseenter",
+    function() {
+
+        if (noAttempts < maxAttempts) {
+
+            moveNoButton();
+
+            noAttempts++;
+
+        }
+
+    }
+);
+
+
+noButton.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (noAttempts < maxAttempts) {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+            noAttempts++;
+
+        }
+
+    }
+);
+
+
+function moveNoButton() {
+
+    const maxX =
+        window.innerWidth -
+        noButton.offsetWidth -
+        30;
+
+    const maxY =
+        window.innerHeight -
+        noButton.offsetHeight -
+        30;
+
+    const randomX =
+        Math.max(
+            20,
+            Math.random() * maxX
+        );
+
+    const randomY =
+        Math.max(
+            20,
+            Math.random() * maxY
+        );
+
+    noButton.style.position = "fixed";
+
+    noButton.style.left =
+        randomX + "px";
+
+    noButton.style.top =
+        randomY + "px";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
